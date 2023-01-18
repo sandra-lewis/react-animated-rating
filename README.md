@@ -43,13 +43,13 @@ import Rating from 'react-animated-rating';
 | `filled` | number | 0 | Number of filled icons. |
 | `icon` | ReactNode | - | Embed SVG element as a React node. |
 | `size` | string | "1.5em" | Font size of the SVG icon (Default *width = 1em* and *height = 1em*. Therefore, if *size = 1.5em*, then *width = 24px* and *height = 24px*). **Does not work if the property `icon` is set. Only works with the default star icon.** |
-| `wrapperClassName` | string | - | Wrapper class for the Rating component. |\s\s
+| `wrapperClassName` | string | - | Wrapper class for the Rating component. |
 
 ## Callbacks
 
 | Callback | Type | Description |
 |--|--|--|
-| `onChange` | function (value) {} | Returns the rating `value` when the icon is clicked. |\s\s
+| `onChange` | function (value) {} | Returns the rating `value` when the icon is clicked. |
 
 ## Change Icon Color
 
