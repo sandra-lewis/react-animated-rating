@@ -62,9 +62,7 @@ import Rating from 'react-animated-rating';
 
 **CSS**
 ```
-.icon-red {
-	--icon-color: red;
-}
+.icon-red { --icon-color: red; }
 ```
 
 [npm-url]: https://www.npmjs.com/package/react-animated-rating
