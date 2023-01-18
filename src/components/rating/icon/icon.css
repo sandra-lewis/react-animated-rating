@@ -1,0 +1,138 @@
+:root {
+  --icon-color: #ffc300;
+}
+
+.react-animated-rating-wrapper {
+  display: flex;
+  position: relative;
+}
+
+.react-animated-rating-wrapper svg path {
+  stroke: var(--icon-color);
+}
+
+.react-animated-rating-wrapper:hover {
+  cursor: pointer;
+}
+
+.react-animated-rating-icon {
+  border: none;
+  background: none;
+  font-size: 16px;
+  padding: 0;
+}
+
+.react-animated-rating-icon:focus-visible {
+  border-radius: 1px;
+  outline: 2px solid #3399ff;
+}
+
+.react-animated-rating-icon-confetti:before,
+.react-animated-rating-icon-confetti:after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 140%;
+  height: 100%;
+  left: -20%;
+  z-index: -1000;
+  transition: all ease-in-out 0.5s;
+  background-repeat: no-repeat;
+}
+
+.react-animated-rating-icon-confetti:before {
+  top: -50%;
+  background-image: radial-gradient(
+      circle,
+      var(--icon-color) 50%,
+      transparent 0%
+    ),
+    radial-gradient(circle, var(--icon-color) 50%, transparent 0%),
+    radial-gradient(circle, var(--icon-color) 50%, transparent 0%),
+    radial-gradient(circle, var(--icon-color) 50%, transparent 0%);
+  background-size: 10% 10%, 15% 15%, 15% 15%, 20% 20%;
+  animation: topConfetti ease-in-out 1.75s forwards;
+}
+
+.react-animated-rating-icon-confetti:after {
+  bottom: -50%;
+  background-image: radial-gradient(
+      circle,
+      var(--icon-color) 50%,
+      transparent 0%
+    ),
+    radial-gradient(circle, var(--icon-color) 50%, transparent 0%);
+  background-size: 18% 18%, 15% 15%;
+  animation: bottomConfetti ease-in-out 1.75s forwards;
+}
+
+.react-animated-rating-icon-bounce {
+  animation: bounce 0.5s ease-in-out;
+}
+
+.react-animated-rating-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  animation: pulse 1s ease-out;
+}
+
+:where(.react-animated-rating-icon-filled, .react-animated-rating-pulse) svg path {
+  fill: var(--icon-color);
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  75% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes topConfetti {
+  0% {
+    background-position: 15% 70%, 28% 70%, 68% 70%, 90% 70%;
+  }
+  50% {
+    background-position: 10% 40%, 28% 0%, 68% 40%, 85% 20%;
+  }
+  100% {
+    background-position: 10% 25%, 28% 20%, 68% 20%, 85% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+@keyframes bottomConfetti {
+  0% {
+    background-position: 43% 28%, 90% 20%;
+  }
+  50% {
+    background-position: 43% 70%, 85% 40%;
+  }
+  100% {
+    background-position: 43% 80%, 85% 50%;
+    background-size: 0% 0%, 0% 0%;
+  }
+}
