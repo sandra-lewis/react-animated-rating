@@ -36,7 +36,7 @@ const Rating: FC<RatingProps> = ({ animation, icon, size, onChange, wrapperClass
 
   return (
     <div className={classnames('react-animated-rating', { [wrapperClassName]: wrapperClassName })}>
-      {[...Array(count)].map((_, index: number) => (
+      {Array.from({ length: count }, (_, index: number) => (
         <Icon
           key={index}
           index={index}
