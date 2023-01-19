@@ -1,6 +1,6 @@
 {
   "name": "react-animated-rating",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A WCAG compliant animated rating React component",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
