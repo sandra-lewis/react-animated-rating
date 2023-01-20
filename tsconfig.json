@@ -9,7 +9,6 @@
     "lib": ["dom", "esnext"],
     "importHelpers": true,
     "declaration": true,
-    "sourceMap": true,
     "rootDir": "./src",
     "outDir": "./dist/esm",
     "strict": true,

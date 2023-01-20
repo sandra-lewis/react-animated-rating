@@ -5,15 +5,13 @@
 ![npm-typescript]
 [![License][github-license]][github-license-url]
 
-**react-animated-rating** is a WCAG compliant animated rating React component.
+**react-animated-rating** is an animated rating React component.
 
 ## Demo
 
 See  [react-animated-rating](https://react-animated-rating.netlify.app/)  in action.
 
 ## Installation
-
-Install the package using yarn or npm:
 
 ```bash
 yarn add react-animated-rating
@@ -32,7 +30,7 @@ Add `Rating` to your component:
 ```
 import Rating from 'react-animated-rating';
 
-<Rating onChange={(value: number) => { // do something with rating value }} />
+<Rating />
 ```
 
 ## Properties
