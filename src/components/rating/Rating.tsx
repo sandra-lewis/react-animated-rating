@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useState } from 'react'
+import React, { FC, ReactNode, useEffect, useState } from 'react'
 import classnames from 'classnames'
 import Icon from './icon'
 import './rating.css'
@@ -27,6 +27,10 @@ type RatingProps = RatingCommonProps & StarDimensionOrIconProps
 
 const Rating: FC<RatingProps> = ({ animation, icon, size, onChange, wrapperClassName = '', count = 5, filled = 0 }) => {
   const [value, setValue] = useState<number>(filled <= count ? filled : count)
+
+  useEffect(() => {
+    setValue(filled)
+  }, [filled])
 
   const handleChange = (index: number) => {
     setValue(index)
