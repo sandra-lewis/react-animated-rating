@@ -14,11 +14,15 @@ See  [react-animated-rating](https://react-animated-rating.netlify.app/)  in act
 
 Install the package using yarn or npm:
 
-`yarn add react-animated-rating`
+```bash
+yarn add react-animated-rating
+```
 
 OR
 
-`npm install react-animated-rating`
+```bash
+npm install react-animated-rating
+```
 
 ## Usage
 
