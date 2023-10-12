@@ -1,7 +1,7 @@
 {
   "name": "react-animated-rating",
-  "version": "1.0.4",
-  "description": "A WCAG compliant animated rating React component",
+  "version": "1.0.5",
+  "description": "An animated rating React component",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
@@ -11,8 +11,8 @@
   },
   "scripts": {
     "build": "yarn build:esm && yarn build:cjs",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "build:esm": "tsc && copyfiles -u 1 src/**/*.css dist/esm",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs && copyfiles -u 1 src/**/*.css dist/cjs",
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
     "test": "jest --config jestconfig.json",
@@ -20,7 +20,7 @@
     "prepublishOnly": "npm run prettier && npm run lint"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=16"
   },
   "files": [
     "dist",
@@ -44,6 +44,7 @@
     "@types/react": "^18.0.26",
     "@typescript-eslint/eslint-plugin": "^5.48.2",
     "@typescript-eslint/parser": "^5.48.2",
+    "copyfiles": "^2.4.1",
     "eslint": "^8.32.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
