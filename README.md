@@ -3,7 +3,6 @@
 [![NPM version][npm-image]][npm-url]
 [![Build][github-build]][github-build-url]
 ![npm-typescript]
-[![License][github-license]][github-license-url]
 
 **react-animated-rating** is a WCAG compliant animated rating React component.
 
@@ -70,10 +69,13 @@ import Rating from 'react-animated-rating';
 .icon-red { --icon-color: red; }
 ```
 
+## License
+
+**react-animated-rating** is released under the MIT License.
+
+
 [npm-url]: https://www.npmjs.com/package/react-animated-rating
 [npm-image]: https://img.shields.io/npm/v/react-animated-rating
-[github-license]: https://img.shields.io/github/license/sandra-lewis/react-animated-rating
-[github-license-url]: https://github.com/sandra-lewis/react-animated-rating/blob/master/LICENSE
 [github-build]: https://github.com/sandra-lewis/react-animated-rating/actions/workflows/publish.yml/badge.svg
 [github-build-url]: https://github.com/sandra-lewis/react-animated-rating/actions/workflows/publish.yml
 [npm-typescript]: https://img.shields.io/npm/types/react-animated-rating
