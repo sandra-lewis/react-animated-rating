@@ -1,42 +1,54 @@
-import React, { FC, ReactNode, useEffect, useState } from 'react'
-import classnames from 'classnames'
-import Icon from './icon'
-import './rating.css'
+import React, { FC, ReactNode, useEffect, useState } from 'react';
+import classnames from 'classnames';
+import Icon from './icon';
+import './rating.css';
 
 interface RatingCommonProps {
-  animation?: boolean
-  count?: number
-  filled?: number
-  wrapperClassName?: string
-  onChange?: (value: number) => void
+  animation?: boolean;
+  count?: number;
+  disabled?: boolean;
+  filled?: number;
+  wrapperClassName?: string;
+  onChange?: (value: number) => void;
 }
 
 interface StarSizeProps {
-  size?: string
-  icon?: never
+  size?: string;
+  icon?: never;
 }
 
 interface RatingIconProps {
-  icon?: ReactNode
-  size?: never
+  icon?: ReactNode;
+  size?: never;
 }
 
-type StarDimensionOrIconProps = StarSizeProps | RatingIconProps
+type StarDimensionOrIconProps = StarSizeProps | RatingIconProps;
 
-type RatingProps = RatingCommonProps & StarDimensionOrIconProps
+type RatingProps = RatingCommonProps & StarDimensionOrIconProps;
 
-const Rating: FC<RatingProps> = ({ animation, icon, size, onChange, wrapperClassName = '', count = 5, filled = 0 }) => {
-  const [value, setValue] = useState<number>(filled <= count ? filled : count)
+const Rating: FC<RatingProps> = ({
+  animation,
+  disabled,
+  icon,
+  size,
+  onChange,
+  wrapperClassName = '',
+  count = 5,
+  filled = 0,
+}) => {
+  const [value, setValue] = useState<number>(filled <= count ? filled : count);
 
   useEffect(() => {
-    setValue(filled)
-  }, [filled])
+    setValue(filled);
+  }, [filled]);
 
   const handleChange = (index: number) => {
-    setValue(index)
+    setValue(index);
 
-    if (onChange) onChange(index)
-  }
+    if (onChange) {
+      onChange(index);
+    }
+  };
 
   return (
     <div className={classnames('react-animated-rating', { [wrapperClassName]: wrapperClassName })}>
@@ -48,11 +60,12 @@ const Rating: FC<RatingProps> = ({ animation, icon, size, onChange, wrapperClass
           size={size}
           icon={icon}
           animation={animation}
+          disabled={disabled}
           onChange={handleChange}
         />
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default Rating
+export default Rating;

@@ -39,6 +39,7 @@ import Rating from 'react-animated-rating';
 |--|--|--|--|
 | `animation` | boolean | true | Whether icon animation is enabled or not. |
 | `count` | number | 5 | Number of icons. |
+| `disabled` | boolean | false | Whether icon is disabled or not. |
 | `filled` | number | 0 | Number of filled icons. |
 | `icon` | ReactNode | - | Embed SVG element as a React node. |
 | `size` | string | "1.5em" | Font size of the SVG icon (Default *width = 1em* and *height = 1em*. Therefore, if *size = 1.5em*, then *width = 24px* and *height = 24px*). **Does not work if the property `icon` is set. Only works with the default star icon.** |

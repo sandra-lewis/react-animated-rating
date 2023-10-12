@@ -1,3 +1,3 @@
-import IconStar from './IconStar'
+import IconStar from './IconStar';
 
-export default IconStar
+export default IconStar;

@@ -1,5 +1,6 @@
 :root {
   --icon-color: #ffc300;
+  --icon-disabled-color: #dedfe0;
 }
 
 .react-animated-rating-wrapper {
@@ -11,20 +12,26 @@
   stroke: var(--icon-color);
 }
 
-.react-animated-rating-wrapper:hover {
-  cursor: pointer;
-}
-
 .react-animated-rating-icon {
   border: none;
   background: none;
   font-size: 16px;
   padding: 0;
+  cursor: pointer;
 }
 
 .react-animated-rating-icon:focus-visible {
   border-radius: 1px;
   outline: 2px solid #3399ff;
+}
+
+.react-animated-rating-icon-disabled {
+  cursor: not-allowed;
+}
+
+.react-animated-rating-icon-disabled svg path {
+  stroke: var(--icon-disabled-color);
+  opacity: 0.7;
 }
 
 .react-animated-rating-icon-confetti:before,
@@ -80,6 +87,10 @@
 
 :where(.react-animated-rating-icon-filled, .react-animated-rating-pulse) svg path {
   fill: var(--icon-color);
+}
+
+.react-animated-rating-icon-disabled.react-animated-rating-icon-filled svg path {
+  fill: var(--icon-disabled-color);
 }
 
 @keyframes bounce {
