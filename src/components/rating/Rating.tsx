@@ -8,6 +8,7 @@ interface RatingCommonProps {
   count?: number;
   disabled?: boolean;
   filled?: number;
+  initialBounce?: boolean;
   wrapperClassName?: string;
   onChange?: (value: number) => void;
 }
@@ -30,11 +31,12 @@ const Rating: FC<RatingProps> = ({
   animation,
   disabled,
   icon,
+  initialBounce,
   size,
   onChange,
-  wrapperClassName = '',
   count = 5,
   filled = 0,
+  wrapperClassName = '',
 }) => {
   const [value, setValue] = useState<number>(filled <= count ? filled : count);
 
@@ -59,6 +61,7 @@ const Rating: FC<RatingProps> = ({
           value={value}
           size={size}
           icon={icon}
+          initialBounce={initialBounce}
           animation={animation}
           disabled={disabled}
           onChange={handleChange}
