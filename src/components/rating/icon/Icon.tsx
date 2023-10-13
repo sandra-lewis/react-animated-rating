@@ -10,17 +10,38 @@ interface IconProps {
   animation?: boolean;
   disabled?: boolean;
   icon?: ReactNode;
+  initialBounce?: boolean;
   size?: string;
 }
 
-const Icon: FC<IconProps> = ({ index, value, onChange, icon, size, animation = true, disabled = false }) => {
+const Icon: FC<IconProps> = ({
+  index,
+  value,
+  icon,
+  size,
+  onChange,
+  animation = true,
+  disabled = false,
+  initialBounce = disabled ? false : true,
+}) => {
   const [isAnimated, setIsAnimated] = useState<boolean>(false);
+  const [isBounceEnabled, setIsBounceEnabled] = useState<boolean>(
+    !initialBounce ? value > index && isAnimated && animation : value > index && animation,
+  );
   const animationTimerRef = useRef<number>(0);
 
   useEffect(() => {
     // Clear the pending timer on unmount
     return () => window.clearTimeout(animationTimerRef.current);
   }, []);
+
+  useEffect(() => {
+    if (!initialBounce) {
+      setIsBounceEnabled(value > index && isAnimated && animation);
+    } else {
+      setIsBounceEnabled(value > index && animation);
+    }
+  }, [initialBounce, animation, index, isAnimated, value]);
 
   const handleClick = () => {
     setIsAnimated(true); // Start pulse animation
@@ -47,7 +68,7 @@ const Icon: FC<IconProps> = ({ index, value, onChange, icon, size, animation = t
         className={classnames('react-animated-rating-icon', {
           'react-animated-rating-icon-disabled': disabled,
           'react-animated-rating-icon-filled': value > index,
-          'react-animated-rating-icon-bounce': value > index && animation && !disabled,
+          'react-animated-rating-icon-bounce': isBounceEnabled,
           'react-animated-rating-icon-confetti': isAnimated && animation,
         })}
         onClick={handleClick}
